@@ -16,6 +16,9 @@ namespace EmployeeWage
         int empHrs = 0;
         int empWage = 0;
         int totalEmpWage = 0;
+        int MAX_WORKING_HRS = 0;
+        int FULL_WORKING_HRS = 0;
+        int PART_WORKING_HRS = 0;
 
         public void Attendance()
         {
@@ -31,26 +34,26 @@ namespace EmployeeWage
             }
 
         }
-        
-       
-            public double DailyWage()
-            {
-                Random random = new Random();
-                //Computation
-                int empCheck = random.Next(0, 2);
-                if (empCheck == IS_FULL_TIME)
-                {
-                    empHrs = 8;
-                }
-                else
-                {
-                    empHrs = 0;
-                }
-                empWage = empHrs * EMP_RATE_PER_HOUR;
-                Console.WriteLine("Emp Wage : " + empWage);
-                return empWage;
 
+
+        public double DailyWage()
+        {
+            Random random = new Random();
+            //Computation
+            int empCheck = random.Next(0, 2);
+            if (empCheck == IS_FULL_TIME)
+            {
+                empHrs = 8;
             }
+            else
+            {
+                empHrs = 0;
+            }
+            empWage = empHrs * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Emp Wage : " + empWage);
+            return empWage;
+
+        }
         public void PartTime()
         {
             Random random = new Random();
@@ -89,7 +92,7 @@ namespace EmployeeWage
             empWage = empHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("Emp Wage : " + empWage);
         }
-        public void MonthWages()
+        public void MonthlyWages()
         {
             Random random = new Random();
             for (int day = 0; day < NUM_OF_WORKING_DAYS; day++)
@@ -113,6 +116,30 @@ namespace EmployeeWage
             }
             Console.WriteLine("Total Emp Wage : " + totalEmpWage);
         }
+        public void  Calculate()
+        {
+            Random random = new Random();
+            for (int i = 0; i < NUM_OF_WORKING_DAYS; i++)
+                for (int j = 0; j < NUM_OF_WORKING_DAYS && empHrs < MAX_WORKING_HRS; i++)
+                {
+                    int empCheck = random.Next(0, 3);
+                    switch (empCheck)
+                    {
+                        case IS_FULL_TIME:
+                            this.empHrs = FULL_WORKING_HRS;
+                            this.empHrs += FULL_WORKING_HRS;
+                            break;
+                        case IS_PART_TIME:
+                            this.empHrs = PART_WORKING_HRS;
+                            this.empHrs += PART_WORKING_HRS;
+                            break;
+                        default:
+                            this.empHrs = 0;
+                            this.empHrs += 0;
+                            break;
+                    }
+                }
+        }
     }
-    }
+}
 
