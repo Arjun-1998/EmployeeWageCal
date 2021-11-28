@@ -5,4 +5,5 @@ employee.DailyWage();
 employee.PartTime();
 employee.CaseStatement();
 employee.MonthlyWages();
-//employee.Calculate();
+employee.Calculate();
+employee.compute();
