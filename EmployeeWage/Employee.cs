@@ -8,6 +8,17 @@ namespace EmployeeWage
 {
     public class Employee
     {
+        int totalempHrs = 0;
+        int TOTAL_HOUR = 100;
+        int totalWorkingDays = 0;
+        int TOTAL_DAYS = 20;
+        int maxHourPrMonth = 0;
+        int numofWorkingDays = 0;
+        int WAGE_PR_HR = 20;
+        int FULL_DAY_HOUR = 8;
+        int HALF_DAY_HOUR = 4;
+        int PRESENT = 1, HALF_DAY = 2;
+        int totalsalary = 0;
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
@@ -167,6 +178,21 @@ namespace EmployeeWage
             int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("Total Emp Wage : " + totalEmpWage);
 
+        }
+        public void MultipleCompany()
+
+        {
+            Random rand = new Random();
+            int empCheck = rand.Next(0, 3);
+            while (totalempHrs <= TOTAL_HOUR && totalWorkingDays <= TOTAL_DAYS)
+                while (totalempHrs <= maxHourPrMonth && totalWorkingDays <= numofWorkingDays)
+                {
+                    totalWorkingDays++;
+                    int totalSalary = WAGE_PR_HR * totalempHrs;
+                    Console.WriteLine("Here is the Monthly Wage of Emp." + this.totalsalary);
+
+
+                }
         }
     }       
 }
